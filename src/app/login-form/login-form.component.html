@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+    <h2>Login Form</h2>
+
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+        <div class="form-group">
+            <label for="employeeId">Employee ID</label>
+            <input type="text" class="form-control" id="employeeId" name="employeeId"
+                [(ngModel)]="loginInstance.employeeId" 
+                required #nameField="ngModel" 
+                [class.fieldError]="nameField.invalid && loginForm.submitted"/>
+            <div [hidden]="nameField.valid || !loginForm.submitted" 
+            class="alert alert-danger">
+                Employee Id is required
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password"
+                [(ngModel)]="loginInstance.password" 
+                required #passwordField="ngModel" 
+                [class.fieldError]="passwordField.invalid && loginForm.submitted"/>
+            <div [hidden]="passwordField.valid || !loginForm.submitted" 
+            class="alert alert-danger">
+                Password is required
+            </div>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe"
+                [(ngModel)]="loginInstance.rememberMe">
+            <label class="form-check-label" for="rememberMe">Remember Me</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+
+    </form>
+
+</body>
+
+</html>

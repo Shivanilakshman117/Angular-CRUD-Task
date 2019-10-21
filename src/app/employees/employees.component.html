@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+    <a routerLink="/dashboard">Dashboard</a>
+  
+
+  <h2>Employees List</h2>
+  <ul class="employees">
+    <li *ngFor="let employee of employeesList">
+            <a routerLink="/detail/{{employee.id}}">
+    <span class="badge">{{employee.id}}</span> {{employee.name}}
+</a> 
+<button class="delete" title="delete employee"
+  (click)="delete(employee)">x</button>
+</li>
+  </ul>
+  <div>
+    <label>Employee name:
+      <input #employeeName />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(employeeName.value); employeeName.value=''">
+      Add
+    </button>
+  </div>
+  
+</body>
+
+</html>
