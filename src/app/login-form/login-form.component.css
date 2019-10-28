@@ -1,7 +1,9 @@
 .fieldError {
     border:1px solid red;
 }
-
+body{
+  margin:10em;
+}
 /* employeesComponent's private CSS styles */
 .employees {
     margin: 0 0 2em 0;

@@ -1,16 +1,21 @@
-<div *ngIf="employee">
+<body>
+<div class="card" *ngIf="employee">
 
     <h2>{{employee.name | uppercase}} Details</h2>
-    <div><span>Id: </span>{{employee.id}}</div>
+    <div><span>ID: </span>{{employee.id}}</div>
     <div>
       <label>Name:
         <input [(ngModel)]="employee.name" placeholder="Name"/>
       </label>
     </div>
+   
     <div *ngIf="show"> 
-    <button (click)="save()">save</button>
+    <button class ="button"(click)="save()">Save</button>
     </div>
-    <button (click)="goBack()">go back</button>
+    <div>
+    <button class ="button" (click)="goBack()">Go back</button>
   </div>
+  </div>
+</body>
 
   

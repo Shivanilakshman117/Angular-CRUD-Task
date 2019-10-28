@@ -28,7 +28,7 @@ export class EmployeesComponent implements OnInit {
   getEmployees(): void {
   this.empService.getEmployees().subscribe(employees=>this.employeesList=employees);
   }
-  add(name: string): void {
+  add(name: string, title:string): void {
     name = name.trim();
     if (!name) { return; }
     this.empService.addEmployee({ name } as iEmployees)

@@ -7,11 +7,22 @@
 </head>
 
 <body>
-
+ <div class="topnav">
     <a routerLink="/dashboard">Dashboard</a>
-  
+    <a routerLink="/login">Log Out</a>
+  </div>
 
   <h2>Employees List</h2>
+  <div *ngIf="show">
+      <label>Employee name:
+        <input class="inputDef" #employeeName />
+      </label>
+   
+      <button class="buttonAdd"(click)="add(employeeName.value); employeeName.value=''">
+        Add
+      </button>
+  
+    </div>
   <ul class="employees">
     <li *ngFor="let employee of employeesList">
             <a routerLink="/detail/{{employee.id}}">
@@ -23,16 +34,7 @@
   </div>
 </li>
   </ul>
-  <div *ngIf="show">
-    <label>Employee name:
-      <input #employeeName />
-    </label>
   
-    <button (click)="add(employeeName.value); employeeName.value=''">
-      Add
-    </button>
-
-  </div>
   
 </body>
 
