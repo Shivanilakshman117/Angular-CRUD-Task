@@ -11,8 +11,15 @@ import { EmployeeService } from '../employee.service';
 export class EmployeesComponent implements OnInit {
 
   employeesList : iEmployees[];
+  type:string;
+  show:boolean;
  
-  constructor(private empService: EmployeeService) { }
+  constructor(private empService: EmployeeService) {
+    this.type=localStorage.getItem("employeeId");
+    if(this.type=="admin")
+    this.show=true;
+    else this.show=false;
+   }
 
   ngOnInit() {
     this.getEmployees();

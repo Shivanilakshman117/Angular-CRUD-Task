@@ -7,7 +7,9 @@
         <input [(ngModel)]="employee.name" placeholder="Name"/>
       </label>
     </div>
+    <div *ngIf="show"> 
     <button (click)="save()">save</button>
+    </div>
     <button (click)="goBack()">go back</button>
   </div>
 

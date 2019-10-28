@@ -3,6 +3,7 @@ import { iEmployees } from '../data/employee';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { EmployeeService }  from '../employee.service';
+import { loginModel } from '../data/loginModel';
 
 @Component({
   selector: 'app-employee-detail',
@@ -11,12 +12,22 @@ import { EmployeeService }  from '../employee.service';
 })
 export class EmployeeDetailComponent implements OnInit {
 
-employee: iEmployees;  
+employee: iEmployees; 
+loginInstance :loginModel;
+show : boolean;
+type:string;
   constructor(
     private route: ActivatedRoute,
     private empService: EmployeeService,
     private location: Location
-  ) {}
+  ) {
+
+    this.type=localStorage.getItem("employeeId");
+    if(this.type=="admin")
+    this.show=true;
+    else this.show=false;
+
+  }
 
   ngOnInit() {
     this.getEmployee();
@@ -33,4 +44,5 @@ employee: iEmployees;
     this.empService.updateEmployee(this.employee)
       .subscribe(() => this.goBack());
   }
+
 }

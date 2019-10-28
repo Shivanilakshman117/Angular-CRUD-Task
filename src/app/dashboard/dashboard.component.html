@@ -2,7 +2,7 @@
 
 <a routerLink="/employees">Employees</a>
 <div class="grid grid-pad">
-  <a *ngFor="let employee of employeesList"
+  <a *ngFor="let employee of employees"
    class="col-1-4" 
   [routerLink]="['/detail',employee.id]">
     <div class="module employees">

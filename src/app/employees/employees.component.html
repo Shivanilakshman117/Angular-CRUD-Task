@@ -17,18 +17,21 @@
             <a routerLink="/detail/{{employee.id}}">
     <span class="badge">{{employee.id}}</span> {{employee.name}}
 </a> 
-<button class="delete" title="delete employee"
+<div *ngIf="show">
+  <button class="delete" title="delete employee"
   (click)="delete(employee)">x</button>
+  </div>
 </li>
   </ul>
-  <div>
+  <div *ngIf="show">
     <label>Employee name:
       <input #employeeName />
     </label>
-    <!-- (click) passes input value to add() and then clears the input -->
+  
     <button (click)="add(employeeName.value); employeeName.value=''">
       Add
     </button>
+
   </div>
   
 </body>
